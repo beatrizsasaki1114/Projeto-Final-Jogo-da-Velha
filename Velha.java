@@ -46,6 +46,7 @@ public class Velha
                 do
                 {
                     jogador.facaSuaJogada();
+                    System.out.println(tabDoJogo);
 
                     if (jogador==jogadorH)
                         jogador=jogadorA;
@@ -54,18 +55,21 @@ public class Velha
                 }
                 while (!analista.fimDeJogo());
 
-                if (analista.getMarcaDoVencedor().equals(jogadorH.getMarca()))
-                    jogadorH.vcGanhou ();
-                else
-                    if (analista.getMarcaDoVencedor().equals(jogadorA.getMarca()))
-                        jogadorH.vcPerdeu ();
-                    else
-                        jogadorH.deuVelha ();
+                Marca vencedora = analista.getMarcaDoVencedor();
+                if(vencedora==null){
+                    jogadorH.deuVelha();
+                }else if( vencedora.equals(jogadorH.getMarca())){
+                    jogadorH.vcGanhou();
+                }else{
+                    jogadorH.vcPerdeu();
+                }
 
                 jogadorHumanoComeca = !jogadorHumanoComeca;
             }
-            catch (Exception e)
-            {}
+            catch (Exception e){
+                System.err.println("Não foi possível continuar o jogo: " + e.getMessage());
+                return;
+            }
         }
         while (jogadorH.querMaisUmaPartida());
     }
