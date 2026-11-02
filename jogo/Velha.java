@@ -1,5 +1,7 @@
-import jogador.*;
+package jogo;
 import java.io.*;
+
+import jogo.jogador.*;
 
 public class Velha
 {

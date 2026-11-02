@@ -1,4 +1,7 @@
+package jogo;
 import java.util.Objects;
+import jogo.*;
+
 public class AnalistaSituacional
 {
     private Tabuleiro tabDoJogo;

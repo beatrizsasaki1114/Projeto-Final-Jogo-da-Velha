@@ -1,3 +1,4 @@
+package jogo;
 import java.util.Objects;
 
 public class Marca
