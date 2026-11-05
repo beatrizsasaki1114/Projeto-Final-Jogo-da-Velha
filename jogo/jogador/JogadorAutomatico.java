@@ -12,15 +12,17 @@ public class JogadorAutomatico implements Jogador
         // fazer o jogador escolher sua marca
         // via sorteio de numeros aleatorio
         if ((int)(Math.random()*2) == 0)
-            marca=new marca('X');
+            marca=new Marca('X');
         else
-            marca=new marca('O');
+            marca=new Marca('O');
     }
 
     public JogadorAutomatico (Tabuleiro tab, Marca mrc) throws Exception
     {
         // atribuir tab para tabDoJogo
+        this.tabDoJogo = tab;
         // e mrc para marca
+        this.marca = mrc;
     }
 
     public Marca getMarca ()

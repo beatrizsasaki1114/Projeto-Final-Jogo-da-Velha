@@ -19,15 +19,7 @@ public class JogadorHumano implements Jogador
         System.out.println("Você deseja usar o X ou a O");
         // sua marca e permitir digitacao
         String minhaMarca = teclado.readLine().trim().toUpperCase();
-        try{
-            if (minhaMarca.length() !=1){
-                throw new IllegalArgumentException ("Número de caracteres inválido. Digite X ou O");
-            }
-            // intanciando marca
-            this.marca = new Marca(minhaMarca);
-        } catch (IllegalArgumentException e){
-            System.out.println("Opção inválida.\nEscolha X ou O.");
-        }
+        this.marca = new Marca (minhaMarca.charAt(0));
     }
 
     public JogadorHumano (Tabuleiro tab, Marca mrc) throws Exception
