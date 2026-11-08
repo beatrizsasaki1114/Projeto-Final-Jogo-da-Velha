@@ -15,7 +15,7 @@ public class AnalistaSituacional
     private Marca verificarSequencia(
         int linha1, int coluna1,
         int linha2, int coluna2,
-        int linha3, int coluna3){
+        int linha3, int coluna3) throws Exception{
 
             Marca primeira= tabDoJogo.getMarcaNaPosicao(linha1,coluna1);
             Marca segunda= tabDoJogo.getMarcaNaPosicao(linha2,coluna2);

@@ -49,11 +49,14 @@ public class Velha
                 {
                     jogador.facaSuaJogada();
                     System.out.println(tabDoJogo);
+                    System.out.println("\n\n--------------------\n\n");
 
-                    if (jogador==jogadorH)
+                    if (jogador==jogadorH){
                         jogador=jogadorA;
-                    else
+                    }
+                    else{
                         jogador=jogadorH;
+                    }
                 }
                 while (!analista.fimDeJogo());
 

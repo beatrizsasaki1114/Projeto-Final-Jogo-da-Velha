@@ -38,22 +38,31 @@ public class JogadorHumano implements Jogador
         return this.marca;
     }
 
-    public void facaSuaJogada ()
+        public void facaSuaJogada ()
     {
-        while (true){
-            // pergunta para o jogador onde ele quer
-            System.out.println("Em qual linha você quer jogar? 0, 1 ou 2");
-            int linha = Integer.parseInt(teclado.readLine().trim()); // jogar, permitindo digitacao e chamando
-            System.out.println("Em qual coluna você quer jogar? 0, 1 ou 2");
-            int coluna = Integer.parseInt(teclado.readLine().trim());// jogar, permitindo digitacao e chamando
+        while (true)
+        {
+            try
+            {
+                // pergunta para o jogador onde ele quer jogar, permitindo digitacao
+                System.out.println("\n\nEm qual linha você quer jogar? 0, 1 ou 2");
+                int linha = Integer.parseInt(teclado.readLine().trim());
+                System.out.println("\nEm qual coluna você quer jogar? 0, 1 ou 2");
+                int coluna = Integer.parseInt(teclado.readLine().trim());
 
-            // os métodos apropriados de tabDoJogo
-            if (tabDoJogo.haMarcaNaPosicao(linha, coluna)){
-                tabDoJogo.setMarcaNaPosicao(this.marca, linha, coluna);
-                return;
+                // so joga se a posicao for valida e estiver livre
+                if (!tabDoJogo.haMarcaNaPosicao(linha, coluna))
+                {
+                    tabDoJogo.setMarcaNaPosicao(this.marca, linha, coluna);
+                    return;
+                }
+                System.out.println("Posição já ocupada.\nDigite novamente!");
             }
-
-            System.out.println("Posições inválidas.\nDigite novamente!");
+            catch (Exception erro)
+            {
+                // texto nao numerico, posicao fora de 0..2 ou erro de leitura
+                System.out.println("Posição inválida.\nDigite novamente!");
+            }
         }
     }
 
@@ -77,11 +86,16 @@ public class JogadorHumano implements Jogador
 
     public boolean querMaisUmaPartida ()
     {
-        // perguntar se deseja jogar de novo
-        System.out.println("Você deseja mais uma jogada:\n1-Sim 2-Não");
-        // permitindo digitacao e retornando
-        int jogarNovamente = Integer.parseInt(teclado.readLine());
-        // true ou false, conforme a resposta
-        return (jogarNovamente == 1) ? true : false;
+        try{
+            // perguntar se deseja jogar de novo
+            System.out.println("Você deseja mais uma jogada:\n1-Sim 2-Não");
+            // permitindo digitacao e retornando
+            int jogarNovamente = Integer.parseInt(teclado.readLine().trim());
+            // true ou false, conforme a resposta
+            return (jogarNovamente == 1) ? true : false;
+        }catch(IOException erro){
+            return false;
+        }
+        
     }
 }
