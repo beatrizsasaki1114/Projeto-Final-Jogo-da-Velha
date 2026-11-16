@@ -1,6 +1,4 @@
 package jogo;
-import java.io.*;
-
 import jogo.jogador.*;
 
 public class Velha
@@ -48,6 +46,9 @@ public class Velha
                 do
                 {
                     jogador.facaSuaJogada();
+
+                    System.out.println();
+                    System.out.println("\n--------------------\n");
                     System.out.println(tabDoJogo);
                     System.out.println("\n\n--------------------\n\n");
 

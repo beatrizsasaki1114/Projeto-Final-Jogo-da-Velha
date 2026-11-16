@@ -1,4 +1,4 @@
-﻿package jogo.jogador;
+package jogo.jogador;
 //Garante a importação do .BufferedReader, IOException e InputStreatReader
 import java.io.*;
 import jogo.*;
