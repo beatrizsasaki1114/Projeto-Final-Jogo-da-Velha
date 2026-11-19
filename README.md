@@ -25,7 +25,7 @@ Abra o terminal na pasta  `Projeto-Final-Jogo-da-Velha`.
 Execute:
 
 ```bat
-javac -encoding UTF-8 -d out jogo\*.java jogo\jogador\*.java
+javac -encoding UTF-8 -d out jogo/*.java jogo/jogador/*.java
 ```
 
 Os arquivos compilados serão armazenados na pasta `out`
